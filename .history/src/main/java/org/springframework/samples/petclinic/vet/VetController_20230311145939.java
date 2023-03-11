@@ -48,7 +48,7 @@ class VetController {
 
 	@PostMapping("/vets")
 	public @ResponseBody Vet createVet(@RequestBody Vet vet) {
-		return vetService.createVet(vet.getFirstName(), vet.getLastName(), vet.getSpecialties());
+		return vetService.createVet(vet.getFirstName(), vet.getLastName(), new HashSet<Vet>(vet.getSpecialties()));
 	}
 
 	@GetMapping("/vets.html")

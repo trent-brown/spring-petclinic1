@@ -55,8 +55,4 @@ public interface VetRepository extends Repository<Vet, Integer> {
 	@Cacheable("vets")
 	Page<Vet> findAll(Pageable pageable) throws DataAccessException;
 
-	/**
-	 * @param vetToSave
-	 */
-	Vet save(Vet vetToSave);
 }
