@@ -1,32 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-	"name": "Petclinic",
-	"dockerFile": "Dockerfile",
-	"runArgs": [
-		"--cap-add=SYS_PTRACE",
-		"--security-opt",
-		"seccomp=unconfined",
-		"--mount",
-		"type=bind,source=${env:HOME}/.m2,target=/home/vscode/.m2",
-		"--mount",
-		"type=bind,source=${env:HOME}/.gradle,target=/home/vscode/.gradle",
-		"--env",
-		"GRADLE_USER_HOME=/home/vscode/.gradle"
-	],
-	"initializeCommand": "mkdir -p ${env:HOME}/.m2 ${env:HOME}/.gradle",
-	"postCreateCommand": "sudo chown vscode:vscode /home/vscode/.m2 /home/vscode/.gradle",
-	"remoteUser": "vscode",
+	"name": "Java",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
+
 	"features": {
-		"docker-in-docker": "latest"
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "true"
+		}
 	},
-	"extensions": [
-		"vscjava.vscode-java-pack",
-		"redhat.vscode-xml",
-		"vmware.vscode-boot-dev-pack",
-		"mhutchie.git-graph"
-	],
-	"forwardPorts": [8080],
-	"settings": {
-		"java.import.gradle.enabled": false,
-		"java.server.launchMode": "Standard"
-	}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "java -version",
+
+	// Configure tool-specific properties.
+     "customizations": {
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+			  "streetsidesoftware.code-spell-checker",
+			  "vscjava.vscode-java-pack",
+			  "vscjava.vscode-gradle"
+			]
+		  }
+	 }
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
