@@ -7,6 +7,9 @@
 
 There are failing tests in the PetClinicIntegrationTests and the VetControllerTests.  I have been staring at it and can't figure out the problem.  Help me fix the tests.
 
+If you choose to work on this on your local machine, follow the directions below for cloning the repo.  
+
+You can also work on this in github codespaces.  Simply click on the Open in GitHub Codespaces button above.  Be sure to choose a 4-core machine.  There is a devcontainer.json configuration in the repository that will make sure that Java 17, gradle and maven are installed.  There will also be several vscode extensions enabled by default.
 
 ## Understanding the Spring Petclinic application with a few diagrams
 <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
